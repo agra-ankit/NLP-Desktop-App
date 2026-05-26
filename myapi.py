@@ -1,12 +1,23 @@
 import os
 from huggingface_hub import InferenceClient
+import sys
 
 
 class API:
     def __init__(self):
+        try:
+            with open("resources/apikey.txt", "r") as f:
+                my_api_key = f.read().strip()
+        except FileNotFoundError:
+            print("\n Error : API KEY Missing")
+            print(
+                "Please create a file at 'resources/apikey.txt' and paste your Hugging Face token inside."
+            )
+            print("Check the README on GitHub for full instructions.\n")
+            sys.exit()
         self.client = InferenceClient(
             provider="hf-inference",
-            api_key=os.environ["HF_TOKEN"],
+            api_key=my_api_key,
         )
 
     def sentiment_analyze(self, text):

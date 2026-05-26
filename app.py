@@ -2,8 +2,10 @@ from tkinter import *
 from mydb import DataBase
 from tkinter import messagebox
 from myapi import API
+import sys
 class NLPApp:
     def __init__(self):
+       
         #create db object
         self.dbo=DataBase()
         #create api obj
