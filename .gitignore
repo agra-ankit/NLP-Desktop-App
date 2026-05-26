@@ -1,0 +1,9 @@
+# Ignore API keys and secrets
+resources/apikey.txt
+
+# Ignore database (keeps user passwords private)
+db.json
+
+# Ignore backup files
+appversion1.py
+
